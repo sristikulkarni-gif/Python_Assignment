@@ -1,0 +1,112 @@
+/* -------- Base colors (dull/soft) --------
+   Beige:  #f5f5dc
+   Taupe:  #5d534a
+   Cream:  #fffaf0
+   Pearl:  #eae0d5
+   Nude:   #d2b48c
+------------------------------------------ */
+
+:root{
+  --bg: #f5f5dc;    /* beige */
+  --text: #3e3e3e;  /* taupe-ish text */
+  --card: #fffaf0;  /* cream */
+  --muted: #eae0d5; /* pearl */
+  --accent: #d2b48c;/* nude/tan */
+  --accent-d:#bfa07a;/* darker nude */
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin:0; padding:0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.wrapper{
+  max-width: 980px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.header{
+  display:flex; align-items:center; gap:10px;
+  margin-bottom: 18px;
+}
+
+.brand{
+  font-size: 26px; font-weight: 700; color: var(--taupe, #5d534a);
+}
+
+.badge{
+  font-size: 12px; padding: 2px 8px; border-radius: 999px;
+  background: var(--muted);
+}
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--muted);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  padding: 16px;
+}
+
+.table{
+  width:100%;
+  border-collapse: collapse;
+  border: 1px solid var(--muted);
+  background: #fffdf6; /* slightly warm */
+  border-radius: 10px; overflow: hidden;
+}
+
+.table th, .table td{
+  border-bottom: 1px solid var(--muted);
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.table th{
+  background: var(--muted);
+  font-weight: 600;
+}
+
+.controls{
+  display:grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-left:16px;
+}
+
+fieldset{
+  border:1px solid var(--muted);
+  border-radius: 10px; padding: 12px;
+  background: var(--card);
+}
+
+legend{ padding:0 6px; color:#5d534a; }
+
+input[type="text"], input[type="file"]{
+  width:100%;
+  padding:8px 10px;
+  border:1px solid #d8cfc4;
+  border-radius:8px;
+  background:#fffcf4;
+}
+
+button, input[type="submit"]{
+  appearance:none;
+  border:none;
+  background: var(--accent);
+  color:#fff; padding:8px 12px;
+  border-radius: 999px;
+  cursor:pointer;
+}
+
+button:hover, input[type="submit"]:hover{ background: var(--accent-d); }
+
+.notice{
+  margin: 12px 0; padding:10px 12px; border-left:4px solid var(--accent);
+  background:#fff9ef; border-radius:6px;
+}
+
+a{ color:#5d534a; }
+a:hover{ opacity:.85; }
+footer{ text-align:center; color:#6d665e; margin: 18px 0; }

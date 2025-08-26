@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Supabase File Manager</title>
+</head>
+<body>
+  <h1>Supabase File Manager</h1>
+  <p>Use API endpoints:</p>
+  <ul>
+    <li><a href="/list_buckets">/list_buckets</a> → List all buckets</li>
+  </ul>
+
+  <h2>Move File</h2>
+  <form id="moveForm">
+    <label>Source bucket: <input type="text" name="source_bucket" value="VinCh"></label><br>
+    <label>Source path: <input type="text" name="source_path" value="sri/"></label><br>
+    <label>Destination bucket: <input type="text" name="dest_bucket" value="VinCh"></label><br>
+    <label>Destination path: <input type="text" name="dest_path" value="abc/sri/"></label><br>
+    <button type="submit">Move</button>
+  </form>
+
+  <p id="result"></p>
+
+  <script>
+    document.getElementById("moveForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData.entries());
+
+      const res = await fetch("/move_file", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      document.getElementById("result").innerText = JSON.stringify(json, null, 2);
+    });
+  </script>
+</body>
+</html>
